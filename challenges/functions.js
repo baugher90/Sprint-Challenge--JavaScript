@@ -36,7 +36,7 @@ function greeting(a,b){
 
 // Explain in your own words why `nestedfunction()` can access the variable `internal`.
 
-// Explanation: The object internal is within same scope of `myFunction()`
+// Explanation: The object `internal` is within same scope of `myFunction()`
 
 
 const external = "I'm outside the function";
