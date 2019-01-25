@@ -79,17 +79,24 @@ Name email@example.com
 
 Log the result of your new array. */
 const contactInfo = [];
-graduates.forEach(function(obj){
-  contactInfo.push(obj.first_name)+contactInfo.push(obj.email);
-});
+const getContactInfo = grads => {
+  const contacts = [];
+  for (grad of graduates) {
+    contacts.push(`${grad.first_name} ${grad.email}`);
+  }
+  return contacts;
+}
+contactInfo.push(getContactInfo(graduates));
 console.log(contactInfo);
 
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called uni that contains them all. Log the result. */
 const uni = [];
 
-graduates.includes(graduates,'uni'){
-  uni.push()
+for (let i = 0; i<universities.length;i++) {
+  if (universities[i].includes("Uni")) {
+    uni.push(universities[i]);
+  }
 }
 
 console.log(uni);
@@ -117,6 +124,8 @@ The zoo wants to display both the scientific name and the animal name in front o
 
 */
 const animalNames = [];
+zooAnimals.forEach(x => 
+  animalNames.push(`Name: ${x.animal_name}, Scientific: ${x.scientific_name}`));
 console.log(animalNames);
 
 /* Request 2: .map()    
@@ -126,14 +135,15 @@ The zoos need a list of all their animal's names (names only, not scientific) co
 */
 
 const lowerCase = [];
-console.log(lowerCase); 
-
+lowerCase.push(zooAnimals.map(animal => animal.animal_name.toLowerCase()));
+console.log(lowerCase);
 /* Request 3: .filter() 
 
 The zoos are concenred about animals with a lower population count. Find out which animals have a population less than 5.
 
 */
 const largerPopulation = [];
+largerPopulation.push(zooAnimals.filter(obj => obj.population < 5))
 console.log(largerPopulation);
 
 /* Request 4: .reduce() 
@@ -141,7 +151,7 @@ console.log(largerPopulation);
 The zoos need to know their total animal population across the United States.  Find the total population from all the zoos using the .reduce() method.
 
 */
-const populationTotal = 0;
+const populationTotal = zooAnimals.reduce((a, b) => a + b.population, 0);
 console.log(populationTotal);
 
 
