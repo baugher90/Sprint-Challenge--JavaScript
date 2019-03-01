@@ -67,10 +67,14 @@ const graduates = [{"id":1,"first_name":"Cynde","university":"Missouri Southern 
 Once you have the new array created, sort the universities alphabetically and log the result. */
 
 const universities = [];
-graduates.forEach(function(obj){
-  universities.push(obj.university);
-});
-console.log(universities.sort())
+
+graduates.forEach((i) =>universities.sort().push(i.university))
+
+// graduates.forEach(function(obj){
+//   universities.push(obj.university);
+// });
+
+console.log(universities)
 
 /* Request 2: Create a new array called contactInfo that contains both first name and email of each student. 
 
@@ -79,14 +83,17 @@ Name email@example.com
 
 Log the result of your new array. */
 const contactInfo = [];
-const getContactInfo = grads => {
-  const contacts = [];
-  for (grad of graduates) {
-    contacts.push(`${grad.first_name} ${grad.email}`);
-  }
-  return contacts;
-}
-contactInfo.push(getContactInfo(graduates));
+
+graduates.forEach((i)=>contactInfo.push(i.first_name, i.email))
+
+// const getContactInfo = grads => {
+//   const contacts = [];
+//   for (grad of graduates) {
+//     contacts.push(`${grad.first_name} ${grad.email}`);
+//   }
+//   return contacts;
+// }
+// contactInfo.push(getContactInfo(graduates));
 console.log(contactInfo);
 
 
