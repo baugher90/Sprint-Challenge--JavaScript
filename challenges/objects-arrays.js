@@ -109,14 +109,13 @@ const uni = [];
 //graduates.forEach((i)=>{if (i.university.includes("Uni")){uni.push(i.university)}});
 
 
-const uniSort = grad => {
-  for (grad of graduates) {
-    uni.push(()=>{
-      if (graduates.includes('Uni') === true) {
-        uni.push(grad.university)
-    }})
-  }}
-uniSort(graduates);
+uni.push(graduates.filter((graduates)=>{
+    const str = "Uni"
+    if (graduates.university.includes(str)) {
+      uni.push(graduates.university);
+    }
+  })
+)
 
 
 
