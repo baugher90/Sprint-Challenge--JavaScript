@@ -68,11 +68,16 @@ Once you have the new array created, sort the universities alphabetically and lo
 
 const universities = [];
 
-graduates.forEach((i) =>universities.sort().push(i.university))
+// graduates.forEach((i) =>universities.sort().push(i.university))
 
-// graduates.forEach(function(obj){
-//   universities.push(obj.university);
-// });
+const uniList = uni => {
+  const univ = [];
+  for (uni of graduates) {
+    univ.push(`${uni.university}`);
+  }
+  return univ.sort();
+}
+universities.push(uniList(graduates));
 
 console.log(universities)
 
@@ -84,28 +89,38 @@ Name email@example.com
 Log the result of your new array. */
 const contactInfo = [];
 
-graduates.forEach((i)=>contactInfo.push(i.first_name, i.email))
+//graduates.forEach((i)=>contactInfo.push(i.first_name, i.email))
 
-// const getContactInfo = grads => {
-//   const contacts = [];
-//   for (grad of graduates) {
-//     contacts.push(`${grad.first_name} ${grad.email}`);
-//   }
-//   return contacts;
-// }
-// contactInfo.push(getContactInfo(graduates));
+const getContactInfo = grad => {
+  const contacts = [];
+  for (grad of graduates) {
+    contacts.push(`${grad.first_name} ${grad.email}`);
+  }
+  return contacts;
+}
+contactInfo.push(getContactInfo(graduates));
+
 console.log(contactInfo);
 
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called uni that contains them all. Log the result. */
 const uni = [];
 
-for (let i = 0; i<universities.length;i++) {
-  if (universities[i].includes("Uni")) {
-    uni.push(universities[i]);
-  }
-}
+//graduates.forEach((i)=>{if (i.university.includes("Uni")){uni.push(i.university)}});
 
+
+const uniSort = grad => {
+  for (grad of graduates) {
+    uni.push(()=>{
+      if (graduates.includes('Uni') === true) {
+        uni.push(grad.university)
+    }})
+  }}
+uniSort(graduates);
+
+
+
+  
 console.log(uni);
 
 
@@ -131,8 +146,7 @@ The zoo wants to display both the scientific name and the animal name in front o
 
 */
 const animalNames = [];
-zooAnimals.forEach(x => 
-  animalNames.push(`Name: ${x.animal_name}, Scientific: ${x.scientific_name}`));
+zooAnimals.forEach(x => animalNames.push(`Name: ${x.animal_name}, Scientific: ${x.scientific_name}`));
 console.log(animalNames);
 
 /* Request 2: .map()    

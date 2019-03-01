@@ -22,8 +22,10 @@ function add(a,b){
 function multiply(a,b){
   console.log(a*b);
 }
-function greeting(a,b){
-  return console.log(`Hello ${a} ${b}, nice to meet you!`);
+
+
+function greeting(firstName,lastName){
+  return console.log(`Hello ${firstName} ${lastName}, nice to meet you!`);
 }
 
 
@@ -36,7 +38,7 @@ function greeting(a,b){
 
 // Explain in your own words why `nestedfunction()` can access the variable `internal`.
 
-// Explanation: The object `internal` is within same scope of `myFunction()`
+// Explanation: The object `internal` is within same scope of and is a method of `myFunction() `
 
 
 const external = "I'm outside the function";
